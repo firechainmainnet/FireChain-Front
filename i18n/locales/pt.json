@@ -1,0 +1,170 @@
+{
+  "welcome": "Infraestrutura Blockchain Layer 0 da FireChain",
+  "description": "Blindada. Modular. Auditável. A FireChain elimina REST e entrega soberania digital real, com performance para bilhões de eventos por segundo.",
+  "tooltip": "Como protegemos tudo isso?",
+  "tooltipContent": "Arquitetura descentralizada, sem APIs públicas, com validação local e comunicação via RTDB. Nada visível. Nada interceptável.",
+  "themeToggle": "Alternar tema",
+  "language": "Idioma",
+  "security": {
+    "title": "Blindagem Real da FireChain",
+    "pill": "Blindado e invisível",
+    "tooltip": {
+      "1": "Validação local por full nodes offline",
+      "2": "Fingerprint irreversível por carteira",
+      "3": "RTDB descentralizado para sincronização",
+      "4": "Sem REST, sem middlewares, sem JWT"
+    },
+    "description": "A segurança da FireChain não depende de firewalls, middlewares ou APIs públicas. Nossa arquitetura elimina REST por completo, substituindo rotas tradicionais por sincronização segura via Firebase RTDB descentralizado. Todas as interações são validadas localmente, com fingerprint criptográfica e assinatura HMAC, garantindo privacidade real e integridade auditável — mesmo offline."
+  },
+  "token": {
+    "title": "Token FIRE",
+    "tooltip": {
+      "1": "Token nativo de governança e utilidade",
+      "2": "Distribuição justa e auditável",
+      "3": "Sem pré-venda, sem VCs",
+      "4": "Controle de escassez via méritos"
+    },
+    "description": "O FIRE é o token nativo do protocolo FireChain. Ele alimenta a governança, pagamentos e proteção do ecossistema sem depender de intermediários. Sua distribuição é auditável e baseada em mérito, garantindo escassez programada e equidade institucional."
+  },
+  "oracle": {
+    "title": "Oracles Autônomos",
+    "pill": "Dados externos validados em cadeia",
+    "tooltip": {
+      "1": "Oracles descentralizados para eventos fora da cadeia",
+      "2": "Validação de preços, dados e execuções com HMAC",
+      "3": "Transmissão via RTDB com fingerprint criptografada",
+      "4": "Sem servidores externos, sem exposição REST"
+    },
+    "description": "Os oracles da FireChain permitem a entrada de dados externos no ecossistema sem comprometer a segurança. Utilizando assinaturas criptográficas HMAC e sincronização via Firebase RTDB descentralizado, cada valor é validado localmente e transportado sem REST ou exposição de rede tradicional. Isso garante confiança programável e rastreabilidade institucional para dados de mercado, execuções e fluxos externos."
+  },
+  "governance": {
+    "title": "Governança Descentralizada",
+    "pill": "Soberania institucional programável",
+    "tooltip": {
+      "1": "Votação por mérito e participação verificável",
+      "2": "Propostas técnicas rastreáveis em cadeia",
+      "3": "Nenhuma intervenção de VCs ou fundadores",
+      "4": "Registro perpétuo e consenso auditável"
+    },
+    "description": "A governança da FireChain é executada diretamente por quem contribui, constrói e protege a rede. Sem VCs, sem privilégios ocultos e sem fundos de controle central. Todas as decisões, desde upgrades até parâmetros internos, são propostas via identidade verificável e mérito técnico — com registro perpétuo em cadeia e transparência institucional auditável por qualquer nó da rede."
+  },
+  "zk": {
+    "title": "Zero Knowledge Proofs",
+    "pill": "Privacidade auditável por padrão",
+    "tooltip": {
+      "1": "Provas ZK de conhecimento sem revelar dados",
+      "2": "Integração nativa com contratos e módulos FireChain",
+      "3": "Validações criptográficas invisíveis e locais",
+      "4": "Verificação pública sem exposição de identidade"
+    },
+    "description": "A FireChain incorpora provas Zero Knowledge (ZK) em seus contratos e aplicações nativamente, permitindo validar fatos sem expor nenhum dado sensível. Isso viabiliza privacidade auditável, descentralização real e integridade matemática para fluxos financeiros, identidades e lógica institucional. Nada é transmitido. Nada é visível. E ainda assim, tudo é verificável."
+  },
+  "fullNodes": {
+    "title": "Full Nodes Offline",
+    "pill": "Execução soberana offline",
+    "tooltip": {
+      "1": "Validação local sem internet ou cloud",
+      "2": "Ledger imutável armazenado com criptografia",
+      "3": "Assinaturas digitais com bibliotecas auditadas",
+      "4": "Autonomia total — sem REST, sem dependências"
+    },
+    "description": "Os Full Nodes da FireChain operam de forma autônoma, offline e sem qualquer dependência externa. São responsáveis por validar, armazenar e assinar transações com criptografia de ponta, mantendo o ledger descentralizado 100% imutável. Ideal para ambientes críticos, forenses ou soberanos, os Full Nodes oferecem blindagem completa, auditabilidade real e controle absoluto sobre cada bloco."
+  },
+  "lightNodes": {
+    "title": "Light Nodes Descentralizados",
+    "pill": "Comunicação descentralizada",
+    "tooltip": {
+      "1": "Infra leve com Node.js + RTDB descentralizado",
+      "2": "Processa bilhões de requisições por segundo",
+      "3": "Sem estado, sem REST, sem servidores",
+      "4": "Ideal para front-ends, wallets e gateways"
+    },
+    "description": "Os Light Nodes da FireChain são microserviços descentralizados que interligam carteiras, DApps e aplicações à rede soberana sem qualquer dependência de REST ou backend tradicional. São stateless, processam bilhões de requisições por segundo e garantem comunicação segura com os Full Nodes via RTDB descentralizado. Perfeitos para ambientes críticos que exigem desempenho, anonimato e orquestração modular sem custos excessivos."
+  },
+  "fireAcademy": {
+    "title": "Fire Academy",
+    "pill": "Educação descentralizada",
+    "tooltip": {
+      "1": "Plataforma educacional gratuita e aberta",
+      "2": "Sem login, rastreamento ou barreiras de acesso",
+      "3": "Foco prático em criptografia, blockchain e segurança",
+      "4": "Atualizações técnicas contínuas pela comunidade"
+    },
+    "description": "A Fire Academy é a plataforma educacional oficial da FireChain — gratuita, imparcial e totalmente descentralizada. Sem login, sem coleta de dados e sem interesses comerciais, oferece conteúdos técnicos aplicados sobre criptografia, segurança, soberania digital e infraestrutura blockchain. Ideal para desenvolvedores, curiosos, validadores e educadores que desejam aprender com profundidade e autonomia."
+  },
+  "fireBridge": {
+    "title": "FireBridge",
+    "pill": "Swap descentralizado entre redes",
+    "tooltip": {
+      "1": "Troca direta entre blockchains com segurança soberana",
+      "2": "Sem middlewares, sem permissões externas",
+      "3": "Assinatura local com verificação auditável",
+      "4": "Lógica baseada em oráculos e fingerprint"
+    },
+    "description": "O FireBridge é o protocolo de interoperabilidade descentralizada da FireChain. Ele permite swaps entre diferentes blockchains — sem depender de contratos externos, custódia intermediária ou validações REST. Toda troca é validada por assinaturas locais com HMAC e fingerprint, mantendo a rastreabilidade institucional e o controle total em cada ponta. Ideal para cenários cross-chain que exigem transparência, segurança e auditabilidade real."
+  },
+  "fireCore": {
+    "title": "FireCore SDK",
+    "pill": "Desenvolvimento modular descentralizado",
+    "tooltip": {
+      "1": "SDK oficial com suporte a Rust, Node e WASM",
+      "2": "Geração de carteiras, assinaturas e oráculos",
+      "3": "Criptografia local com fingerprint multicamadas",
+      "4": "Execução offline auditável e modular"
+    },
+    "description": "O FireCore SDK é o kit de desenvolvimento oficial da FireChain — modular, seguro e compatível com ambientes offline. Ele encapsula todas as funções críticas da rede: derivação de carteiras, assinatura criptográfica, geração de fingerprints e execução de oráculos. Com suporte a Rust, Node.js e WebAssembly, o FireCore permite a construção de DApps, bridges, wallets e sistemas auditáveis em qualquer ambiente, sem depender de REST ou backend centralizado."
+  },
+  "cliWallet": {
+    "title": "Wallet CLI FireChain",
+    "pill": "Autocustódia por linha de comando",
+    "tooltip": {
+      "1": "100% offline, sem interface gráfica ou REST",
+      "2": "Criação e blindagem de carteiras por terminal",
+      "3": "Suporte a logs, hashes e fingerprints auditáveis",
+      "4": "Multiplataforma com segurança total e sem rastros"
+    },
+    "description": "A CLI Wallet da FireChain é uma ferramenta de autocustódia projetada para quem exige segurança total e transparência auditável. Escrita em Rust, permite criar, blindar, exportar e assinar carteiras por terminal — sem interface gráfica, sem dependência externa, e com zero armazenamento online. Ideal para ambientes forenses, airgap, validadores e desenvolvedores que priorizam soberania técnica acima de tudo."
+  },
+  "hero": {
+    "descriptions": [
+        "Blindada. Modular. Auditável. A FireChain elimina REST e entrega soberania digital real.",
+        "Executa bilhões de eventos por segundo com descentralização de verdade.",
+        "Sem REST, sem servidores. Apenas sincronização soberana via RTDB descentralizado.",
+        "FireChain é Layer 0 de verdade — sem ponte REST, sem camada opaca.",
+        "Criptografia local. Autocustódia real. Nenhum dado é visível.",
+        "Cada transação é assinada localmente com fingerprint auditável.",
+        "DApps, oráculos, swaps e wallets sem backend, sem servidor, sem rastros.",
+        "Alta performance com tolerância a falhas e 100% de auditabilidade.",
+        "A infraestrutura para quem exige privacidade, integridade e soberania real."
+        ]
+    },
+    "footer": {
+        "nav": "Navegação",
+        "institutional": "Institucional",
+        "github": "GitHub Oficial",
+        "whitepaper": "Whitepaper",
+        "terms": "Termos de Uso",
+        "responsibility": "Responsabilidade Institucional",
+        "tooltip": "Conteúdo em construção",
+        "disclaimer": "Esta plataforma possui finalidade exclusivamente técnica, educacional e institucional. As funcionalidades apresentadas seguem princípios de segurança descentralizada, execução offline e autocustódia verificável. A FireChain não coleta dados pessoais, não oferece serviços financeiros e não possui dependência de servidores REST. O uso da infraestrutura implica ciência dos limites operacionais e do caráter evolutivo do protocolo. Todo o código é modular, auditável e de uso sob responsabilidade do operador."
+    },
+  "auth": {
+    "login": "Entrar",
+    "register": "Criar Conta",
+    "recover": "Recuperar Senha",
+    "email": "E-mail",
+    "password": "Senha",
+    "confirmPassword": "Confirmar Senha",
+    "submit": "Confirmar",
+    "logout": "Sair",
+    "account": "Minha Conta",
+    "already": "Já tem uma conta?",
+    "noAccount": "Não tem uma conta?",
+    "forgot": "Esqueceu a senha?",
+    "backToLogin": "Voltar ao login",
+    "resetSent": "E-mail de recuperação enviado!",
+    "invalid": "Credenciais inválidas ou e-mail não verificado.",
+    "error": "Erro inesperado. Tente novamente.",
+    "registerSuccess": "Conta criada com sucesso. Verifique seu e-mail."
+  }
+}

@@ -1,0 +1,170 @@
+{
+  "welcome": "FireChain Layer 0 Blockchain Infrastructure",
+  "description": "Hardened. Modular. Auditable. FireChain eliminates REST and delivers real digital sovereignty with performance for billions of real-time events.",
+  "tooltip": "How is everything protected?",
+  "tooltipContent": "Decentralized architecture with no public APIs. Local validation and secure RTDB communication. Invisible by design.",
+  "themeToggle": "Toggle theme",
+  "language": "Language",
+  "security": {
+    "title": "Real FireChain Hardening",
+    "pill": "Hardened and invisible",
+    "tooltip": {
+      "1": "Local validation by full offline nodes",
+      "2": "Irreversible fingerprint per wallet",
+      "3": "Decentralized RTDB for synchronization",
+      "4": "No REST, no middlewares, no JWT"
+    },
+    "description": "FireChain’s security does not depend on firewalls, middlewares or public APIs. Our architecture completely eliminates REST, replacing traditional routes with secure synchronization via decentralized Firebase RTDB. All interactions are validated locally with cryptographic fingerprinting and HMAC signatures, ensuring real privacy and auditable integrity — even offline."
+  },
+  "token": {
+    "title": "FIRE Token",
+    "tooltip": {
+      "1": "Native governance and utility token",
+      "2": "Fair and auditable distribution",
+      "3": "No presale, no VC allocations",
+      "4": "Scarcity enforced through merit"
+    },
+    "description": "FIRE is the native token powering FireChain’s ecosystem. It drives governance, payments, and protocol incentives without intermediaries. Its distribution is merit-based, audit-friendly, and guarantees long-term programmable scarcity."
+  },
+  "oracle": {
+    "title": "Autonomous Oracles",
+    "pill": "External data validated on-chain",
+    "tooltip": {
+      "1": "Decentralized oracles for off-chain events",
+      "2": "Price, data and execution validation via HMAC",
+      "3": "RTDB transmission with cryptographic fingerprinting",
+      "4": "No external servers, no REST exposure"
+    },
+    "description": "FireChain's oracles enable secure ingestion of external data into the ecosystem. Using HMAC cryptographic signatures and synchronization via decentralized Firebase RTDB, every value is locally validated and transported without REST or traditional network exposure. This ensures programmable trust and institutional-grade traceability for market feeds, off-chain executions, and external workflows."
+  },
+  "governance": {
+    "title": "Decentralized Governance",
+    "pill": "Programmable institutional sovereignty",
+    "tooltip": {
+      "1": "Voting based on merit and verifiable participation",
+      "2": "On-chain traceable technical proposals",
+      "3": "No VC or founder interference",
+      "4": "Permanent record and auditable consensus"
+    },
+    "description": "FireChain’s governance is executed directly by those who contribute, build, and protect the network. No VCs, no hidden privileges, and no central control funds. All decisions — from protocol upgrades to internal parameters — are proposed through verifiable identity and technical merit, with permanent on-chain records and institutional-grade transparency auditable by any node in the network."
+  },
+  "zk": {
+    "title": "Zero Knowledge Proofs",
+    "pill": "Auditable privacy by default",
+    "tooltip": {
+      "1": "ZK proofs of knowledge without revealing data",
+      "2": "Native integration with FireChain modules and contracts",
+      "3": "Local cryptographic validations with zero visibility",
+      "4": "Public verifiability without identity exposure"
+    },
+    "description": "FireChain integrates Zero Knowledge (ZK) proofs directly into its contracts and applications, enabling verification of facts without disclosing sensitive data. This allows for auditable privacy, real decentralization, and mathematical integrity for financial flows, identities, and institutional logic. Nothing is transmitted. Nothing is visible. Yet everything is verifiable."
+  },
+  "fullNodes": {
+    "title": "Offline Full Nodes",
+    "pill": "Sovereign execution offline",
+    "tooltip": {
+      "1": "Local validation without internet or cloud",
+      "2": "Immutable ledger stored with encryption",
+      "3": "Digital signatures with audited libraries",
+      "4": "Total autonomy — no REST, no dependencies"
+    },
+    "description": "FireChain Full Nodes operate fully offline, without relying on cloud services or internet access. They handle transaction validation, cryptographic signing, and encrypted ledger persistence with absolute sovereignty. Designed for critical, institutional and forensics-grade environments, Full Nodes ensure true decentralization, uncompromised security, and total control over every block."
+  },
+  "lightNodes": {
+    "title": "Decentralized Light Nodes",
+    "pill": "Decentralized communication",
+    "tooltip": {
+      "1": "Lightweight infra with Node.js + decentralized RTDB",
+      "2": "Processes billions of requests per second",
+      "3": "Stateless, no REST, no backend servers",
+      "4": "Perfect for front-ends, wallets and gateways"
+    },
+    "description": "FireChain’s Light Nodes are decentralized microservices that connect wallets, dApps and interfaces to the sovereign network — without REST or traditional backend layers. Built with Node.js and RTDB, they process billions of requests per second, ensuring modular communication, cryptographic routing and ultra-low latency. Ideal for mission-critical apps requiring performance, privacy and full decentralization without infrastructure overhead."
+  },
+  "fireAcademy": {
+    "title": "Fire Academy",
+    "pill": "Decentralized education",
+    "tooltip": {
+      "1": "Free and open technical learning platform",
+      "2": "No login, no tracking, no access barriers",
+      "3": "Focus on cryptography, security and blockchain",
+      "4": "Continuously updated by the community"
+    },
+    "description": "Fire Academy is FireChain’s official decentralized learning platform — free, unbiased, and completely open. With no login, no data collection and no corporate interests, it delivers real-world knowledge on cryptography, blockchain infrastructure, security and digital sovereignty. Ideal for developers, validators, researchers and educators looking to learn deeply and independently."
+  },
+  "fireBridge": {
+    "title": "FireBridge",
+    "pill": "Decentralized cross-chain swap",
+    "tooltip": {
+      "1": "Direct asset exchange between blockchains with sovereign security",
+      "2": "No middlewares or external validators required",
+      "3": "Locally signed, cryptographically auditable",
+      "4": "Powered by fingerprint logic and oracle consensus"
+    },
+    "description": "FireBridge is FireChain’s decentralized interoperability protocol. It enables cross-chain swaps without relying on external contracts, custodial wallets or REST validations. Every exchange is locally signed using HMAC + fingerprint logic, ensuring auditable transparency and sovereign control across both ends. Ideal for institutional-grade applications requiring trustless interoperability."
+  },
+  "fireCore": {
+    "title": "FireCore SDK",
+    "pill": "Modular decentralized development",
+    "tooltip": {
+      "1": "Official SDK with Rust, Node and WASM support",
+      "2": "Wallet generation, signatures and oracles",
+      "3": "Local cryptography with multilayer fingerprinting",
+      "4": "Offline executable, modular and auditable"
+    },
+    "description": "FireCore is FireChain’s official SDK — modular, secure and fully compatible with offline environments. It enables wallet derivation, cryptographic signing, fingerprint generation, and oracle execution with full auditability. Supporting Rust, Node.js and WebAssembly, FireCore empowers developers to build sovereign dApps, wallets, bridges and systems — all without REST or centralized backend dependencies."
+  },
+  "cliWallet": {
+    "title": "FireChain CLI Wallet",
+    "pill": "Terminal-based self-custody",
+    "tooltip": {
+      "1": "100% offline, no GUI, no REST APIs",
+      "2": "Wallet creation and hardening via terminal",
+      "3": "Supports logs, hashes, and auditable fingerprints",
+      "4": "Multiplatform, zero-trace, high-security CLI access"
+    },
+    "description": "FireChain's CLI Wallet is a self-custody tool for those who demand full sovereignty and auditable transparency. Written in Rust, it allows users to create, export, and cryptographically sign wallets via terminal — with no graphical interface, no external dependencies, and zero online exposure. Ideal for airgapped environments, validators, and advanced developers who prioritize operational security above all."
+  },
+  "hero": {
+    "descriptions": [
+        "Hardened. Modular. Auditable. FireChain eliminates REST and delivers real digital sovereignty.",
+        "Executes billions of real-time events with true decentralization.",
+        "No REST. No servers. Just sovereign sync through decentralized RTDB.",
+        "FireChain is true Layer 0 — no REST bridge, no opaque backend.",
+        "Local cryptography. Real self-custody. No data ever exposed.",
+        "Every transaction is locally signed with auditable fingerprinting.",
+        "DApps, oracles, swaps and wallets without backend or tracking.",
+        "High performance with fault tolerance and full auditability.",
+        "Infrastructure for those who demand privacy, integrity and sovereign control."
+        ]
+    },
+    "footer": {
+        "nav": "Navigation",
+        "institutional": "Institutional",
+        "github": "Official GitHub",
+        "whitepaper": "Whitepaper",
+        "terms": "Terms of Use",
+        "responsibility": "Institutional Responsibility",
+        "tooltip": "Content under construction",
+        "disclaimer": "This platform is exclusively technical, educational, and institutional. The features follow principles of decentralized security, offline execution, and verifiable self-custody. FireChain does not collect personal data, does not offer financial services, and does not rely on REST servers. Use of the infrastructure implies awareness of operational limits and the evolving nature of the protocol. All code is modular, auditable, and used under the operator's responsibility."
+    },
+  "auth": {
+    "login": "Login",
+    "register": "Create Account",
+    "recover": "Recover Password",
+    "email": "Email",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "submit": "Submit",
+    "logout": "Logout",
+    "account": "My Account",
+    "already": "Already have an account?",
+    "noAccount": "Don't have an account?",
+    "forgot": "Forgot your password?",
+    "backToLogin": "Back to login",
+    "resetSent": "Recovery email sent!",
+    "invalid": "Invalid credentials or unverified email.",
+    "error": "Unexpected error. Please try again.",
+    "registerSuccess": "Account created successfully. Please verify your email."
+  }
+}

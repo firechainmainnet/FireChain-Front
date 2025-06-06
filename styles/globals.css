@@ -1,0 +1,198 @@
+/* ============================================
+🔗 BASE TAILWIND
+============================================ */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================
+🎨 VARIÁVEIS DE TEMA — LIGHT MODE
+============================================ */
+:root {
+  --color-bg: #ffffff;
+  --color-fg: #111111;
+
+  --color-primary: #ff5722;
+  --color-secondary: #ffa000;
+  --color-surface: #f9f9f9;
+
+  --color-muted: #5f6368;
+  --color-accent: #e53935;
+  --color-border: #dadce0;
+  --color-glass: rgba(255, 255, 255, 0.7);
+}
+
+/* ============================================
+🌒 VARIÁVEIS DE TEMA — DARK MODE
+============================================ */
+.dark {
+  --color-bg: #0f0f0f;
+  --color-fg: #ffffff;
+
+  --color-primary: #ff7043;
+  --color-secondary: #ffcc80;
+  --color-surface: #1a1a1a;
+
+  --color-muted: #c2c2c2;
+  --color-accent: #ff8a80;
+  --color-border: #333333;
+  --color-glass: rgba(24, 24, 24, 0.4);
+}
+
+/* ============================================
+🧱 ESTILOS BASE
+============================================ */
+body {
+  background-color: var(--color-bg);
+  color: var(--color-fg);
+  font-family: 'Inter', sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ============================================
+🧊 GLASS E SOMBRAS PREMIUM
+============================================ */
+.glass {
+  @apply backdrop-blur-md border border-white/10 rounded-lg;
+  background-color: var(--color-glass);
+}
+
+.shadow-glass {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.03);
+}
+
+.dark .shadow-glass {
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.6), 0 0 1px rgba(255, 255, 255, 0.03);
+}
+
+/* ============================================
+✨ HOVER GLINT PREMIUM (visível em ambos temas)
+============================================ */
+@keyframes hoverGlint {
+  0%   { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.hover-glint {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.hover-glint::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  border-radius: inherit;
+
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.2) 30%,
+    rgba(255, 255, 255, 0.45) 50%,
+    transparent 70%
+  );
+  background-size: 200% 100%;
+  background-position: -200% 0;
+  animation: hoverGlint 2.5s ease-in-out infinite;
+  mix-blend-mode: screen;
+  opacity: 0.9;
+}
+
+.dark .hover-glint::before {
+  mix-blend-mode: overlay;
+  opacity: 0.85;
+}
+
+/* ============================================
+💥 BOUNCE CLICK — Feedback de clique
+============================================ */
+@keyframes bounceClick {
+  0%   { transform: scale(1); }
+  40%  { transform: scale(0.95); }
+  100% { transform: scale(1); }
+}
+.bounce-on-click:active {
+  animation: bounceClick 0.25s ease-out;
+}
+
+/* ============================================
+🧠 TOOLTIP PASSIVO — Fade sutil
+============================================ */
+@keyframes fadeTooltipPassive {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.tooltip-passive-animate {
+  animation: fadeTooltipPassive 0.35s ease-out both;
+}
+
+/* ============================================
+🌟 HOVER GLOW — Brilho leve premium
+============================================ */
+.hover-glow:hover {
+  filter: brightness(1.08) contrast(1.1) saturate(1.15);
+  transform: scale(1.015);
+  transition: all 0.25s ease-in-out;
+}
+
+/* ============================================
+🎨 CORES UTILITÁRIAS
+============================================ */
+.text-primary     { color: var(--color-primary); }
+.text-muted       { color: var(--color-muted); }
+.text-foreground  { color: var(--color-fg); }
+.bg-background    { background-color: var(--color-bg); }
+.bg-surface       { background-color: var(--color-surface); }
+.border-border    { border-color: var(--color-border); }
+
+/* ============================================
+🎞️ ANIMAÇÕES AUXILIARES (fade, slide)
+============================================ */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+.animate-fadeIn {
+  animation: fadeIn 0.35s ease-in-out both;
+}
+
+@keyframes slideFade {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-slideFade {
+  animation: slideFade 0.3s ease-out both;
+}
+/* 📁 globals.css */
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.animate-blink {
+  animation: blink 1s step-start infinite;
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeInDown {
+  animation: fadeInDown 0.6s ease-out forwards;
+}
+html, body {
+  height: 100%;
+  overflow-x: hidden;
+}
