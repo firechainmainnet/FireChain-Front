@@ -1,10 +1,11 @@
 import {
   OracleBlock,
-  OracleBlockCompact,
   OracleBlockMinimal,
   CurrencyIcon,
 } from './ui/OracleBlocks'
 
+import OracleBlockWithBadges from './ui/OracleBlockWithBadges'
+import OracleBlockDominanceBadges from './ui/OracleBlockDominanceBadges'
 import ConnectedUserUID from './ui/ConnectedUserUID'
 
 export default function TokenomicsBlocks({ data, t, user }) {
@@ -17,7 +18,6 @@ export default function TokenomicsBlocks({ data, t, user }) {
     liquidez_brl,
     liquidez_usdt,
     supply_circulante,
-    variacao_24h_brl,
     variacao_24h_usdt
   } = data
 
@@ -29,89 +29,22 @@ export default function TokenomicsBlocks({ data, t, user }) {
           🔥 {t('tokenomics.title')}
         </h2>
 
-        {/* 📈 Cotação FIRE */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <OracleBlock
-            label={t('tokenomics.price_firebrl')}
-            value={brl.price_firebrl}
-            prefix="R$ "
-            variation={variacao_24h_brl}
-            icon={<CurrencyIcon src="/logo.png" alt="FIRE" />}
-          />
-          <OracleBlock
-            label={t('tokenomics.price_fireusdt')}
-            value={usdt.price_fireusdt}
-            prefix="$ "
-            variation={variacao_24h_usdt}
-            icon={<CurrencyIcon src="/logo.png" alt="FIRE" />}
-          />
-        </div>
-
-        {/* 💧 Liquidez */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <OracleBlock
-            label={t('tokenomics.liquidity_brl')}
-            value={liquidez_brl}
-            prefix="R$ "
-            icon={<CurrencyIcon src="/brl.png" alt="BRL" />}
-          />
-          <OracleBlock
-            label={t('tokenomics.liquidity_usdt')}
-            value={liquidez_usdt}
-            prefix="$ "
-            icon={<CurrencyIcon src="/usdt.png" alt="USDT" />}
-          />
-        </div>
+        {/* 🔥 Cotação com badges (supply, max, liquidez) */}
+        <OracleBlockWithBadges
+          usdtPrice={usdt.price_fireusdt}
+          brlPrice={brl.price_firebrl}
+          supply={supply_circulante}
+          supplyMax={33000000}
+          variation={variacao_24h_usdt}
+          liquidezBrl={liquidez_brl}
+          liquidezUsdt={liquidez_usdt}
+        />
 
         {/* 🔻 Separador institucional */}
         <div className="border-t border-white/10 mt-4 pt-4" />
 
-        {/* 🔥 Supply */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <OracleBlockCompact
-            label={t('tokenomics.supply')}
-            value={supply_circulante}
-            decimals={0}
-            iconSrc="/logo.png"
-          />
-          <OracleBlockCompact
-            label="Supply Máximo"
-            value={33000000}
-            decimals={0}
-            iconSrc="/logo.png"
-          />
-        </div>
-
-        {/* 🔻 Separador institucional */}
-        <div className="border-t border-white/10 mt-4 pt-4" />
-
-        {/* 📊 Dominância */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-          <OracleBlockCompact
-            label={t('tokenomics.dominance_brl')}
-            value={fire_internal_dominance.brl}
-            suffix="%"
-            iconSrc="/brl.png"
-          />
-          <OracleBlockCompact
-            label={t('tokenomics.dominance_btc')}
-            value={fire_internal_dominance.btc}
-            suffix="%"
-            iconSrc="/btc.png"
-          />
-          <OracleBlockCompact
-            label={t('tokenomics.dominance_eth')}
-            value={fire_internal_dominance.eth}
-            suffix="%"
-            iconSrc="/eth.png"
-          />
-          <OracleBlockCompact
-            label={t('tokenomics.dominance_usdt')}
-            value={fire_internal_dominance.usdt}
-            suffix="%"
-            iconSrc="/usdt.png"
-          />
-        </div>
+        {/* 📊 Dominância horizontal com badges */}
+        <OracleBlockDominanceBadges data={fire_internal_dominance} />
 
         {/* 🔻 Separador institucional */}
         <div className="border-t border-white/10 mt-4 pt-4" />
