@@ -1,9 +1,8 @@
 // 📁 components/InstitutionalSlider.jsx
-// ♾️ Scroll institucional premium com drag, snap e momentum real via Framer Motion
+// ♾️ Scroll institucional premium com loop real, direção dinâmica e drag momentum
 
 import { useTranslation } from '../i18n/LanguageContext'
-import { useState, useEffect, useRef } from 'react'
-import { motion } from 'framer-motion'
+import { useEffect, useRef, useState } from 'react'
 import InstitutionalPill from './InstitutionalPill'
 
 import { FaShieldAlt, FaCoins, FaGraduationCap, FaCodeBranch } from 'react-icons/fa'
@@ -24,12 +23,22 @@ import FireBridgeModalContent from './FireBridgeModalContent'
 import FireCoreModalContent from './FireCoreModalContent'
 import CliWalletModalContent from './CliWalletModalContent'
 
-export default function InstitutionalSlider() {
+export default function InstitutionalSlider({ direction = 'left' }) {
   const { t, ready } = useTranslation()
   const [pause, setPause] = useState(false)
   const containerRef = useRef(null)
+  const contentRef = useRef(null)
 
-  const baseItems = [
+  const x = useRef(0)
+  const velocity = useRef(direction === 'right' ? 0.4 : -0.4) // 🔁 Direção dinâmica
+  const frameRef = useRef(null)
+  const isDragging = useRef(false)
+  const dragVelocity = useRef(0)
+  const lastX = useRef(0)
+  const momentumRef = useRef(null)
+  const totalWidth = useRef(1)
+
+  const items = [
     { icon: <FaShieldAlt />, label: t('security.pill'), modalTitle: t('security.title'), modalContent: <SecurityModalContent /> },
     { icon: <FaCoins />, label: t('token.title'), modalTitle: t('token.title'), modalContent: <FireTokenModalContent /> },
     { icon: <BiTransfer />, label: t('oracle.pill'), modalTitle: t('oracle.title'), modalContent: <OracleModalContent /> },
@@ -43,54 +52,88 @@ export default function InstitutionalSlider() {
     { icon: <BsTerminalFill />, label: t('cliWallet.pill'), modalTitle: t('cliWallet.title'), modalContent: <CliWalletModalContent /> }
   ]
 
-  const [clones, setClones] = useState(4)
+  const duplicatedItems = [...items, ...items]
 
   useEffect(() => {
-    const handleResize = () => {
-      if (!containerRef.current) return
-      const containerWidth = containerRef.current.offsetWidth
-      const approxPillWidth = 240
-      const visiblePills = Math.ceil(containerWidth / approxPillWidth)
-      setClones(Math.ceil((visiblePills * 2) / baseItems.length) + 2)
+    if (contentRef.current) {
+      totalWidth.current = contentRef.current.scrollWidth / 2
     }
 
-    handleResize()
-    window.addEventListener('resize', handleResize)
-    return () => window.removeEventListener('resize', handleResize)
-  }, [])
+    const animate = () => {
+      if (!pause && contentRef.current) {
+        x.current += velocity.current
+
+        if (Math.abs(x.current) >= totalWidth.current) {
+          x.current = 0
+        }
+
+        contentRef.current.style.transform = `translate3d(${x.current}px, 0, 0)`
+      }
+
+      frameRef.current = requestAnimationFrame(animate)
+    }
+
+    frameRef.current = requestAnimationFrame(animate)
+    return () => cancelAnimationFrame(frameRef.current)
+  }, [pause, direction])
+
+  // 🖱️ Drag manual
+  const handlePointerDown = (e) => {
+    cancelAnimationFrame(momentumRef.current)
+    isDragging.current = true
+    setPause(true)
+    lastX.current = e.clientX || e.touches?.[0]?.clientX || 0
+  }
+
+  const handlePointerMove = (e) => {
+    if (!isDragging.current) return
+    const currentX = e.clientX || e.touches?.[0]?.clientX || 0
+    const delta = currentX - lastX.current
+    x.current += delta
+    dragVelocity.current = delta
+    lastX.current = currentX
+
+    if (contentRef.current) {
+      contentRef.current.style.transform = `translate3d(${x.current}px, 0, 0)`
+    }
+  }
+
+  const handlePointerUp = () => {
+    isDragging.current = false
+
+    const releaseMomentum = () => {
+      dragVelocity.current *= 0.92
+      if (Math.abs(dragVelocity.current) > 0.5 && contentRef.current) {
+        x.current += dragVelocity.current
+        contentRef.current.style.transform = `translate3d(${x.current}px, 0, 0)`
+        momentumRef.current = requestAnimationFrame(releaseMomentum)
+      } else {
+        setPause(false)
+      }
+    }
+
+    releaseMomentum()
+  }
 
   if (!ready) return null
-
-  const infiniteItems = Array(clones).fill(baseItems).flat()
 
   return (
     <section className="w-full overflow-hidden py-10">
       <div
         ref={containerRef}
-        className="relative select-none touch-pan-x"
+        className="relative touch-pan-x select-none"
+        onPointerDown={handlePointerDown}
+        onPointerMove={handlePointerMove}
+        onPointerUp={handlePointerUp}
+        onPointerLeave={handlePointerUp}
         onMouseEnter={() => setPause(true)}
         onMouseLeave={() => setPause(false)}
       >
-        <motion.div
-          className="flex gap-6 w-max will-change-transform"
-          drag="x"
-          dragElastic={0.15}
-          dragMomentum={true}
-          dragConstraints={{ left: -5000, right: 0 }} // grande o suficiente
-          dragSnapToOrigin={true} // 🔥 Snap automático ao soltar
-          onDragStart={() => setPause(true)}
-          onDragEnd={() => setPause(false)}
-          animate={!pause ? { x: ['0%', '-50%'] } : { x: 0 }}
-          transition={{
-            x: {
-              repeat: Infinity,
-              repeatType: 'loop',
-              ease: 'linear',
-              duration: 555
-            }
-          }}
+        <div
+          ref={contentRef}
+          className="flex gap-6 w-max will-change-transform px-4"
         >
-          {infiniteItems.map((item, idx) => (
+          {duplicatedItems.map((item, idx) => (
             <InstitutionalPill
               key={`pill-${idx}`}
               icon={item.icon}
@@ -100,7 +143,7 @@ export default function InstitutionalSlider() {
               onModalClose={() => setPause(false)}
             />
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   )

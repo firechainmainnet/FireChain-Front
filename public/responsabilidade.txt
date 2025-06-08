@@ -1,0 +1,49 @@
+🔥 FIRECHAIN — RESPONSABILIDADE INSTITUCIONAL
+
+Última atualização: 08 de junho de 2025
+
+A FireChain se compromete com os mais altos padrões de integridade, segurança, transparência e responsabilidade institucional no desenvolvimento, operação e manutenção de sua infraestrutura Web3. Estes princípios são fundamentais para garantir a confiança e a resiliência do ecossistema descentralizado que oferecemos à comunidade.
+
+1. 📘 MISSÃO E VALORES
+A FireChain tem como missão tornar o acesso à tecnologia blockchain seguro, sustentável e acessível, promovendo inovação com responsabilidade. Nossos valores incluem:
+- Ética no desenvolvimento e uso da tecnologia;
+- Transparência nos processos e decisões;
+- Compromisso com a privacidade e soberania do usuário;
+- Excelência técnica e institucional.
+
+2. ⚖️ CONFORMIDADE LEGAL E REGULATÓRIA
+Nos comprometemos a operar em conformidade com legislações locais e internacionais, incluindo mas não se limitando a:
+- Lei Geral de Proteção de Dados (LGPD - Brasil);
+- General Data Protection Regulation (GDPR - União Europeia);
+- Normas de prevenção à lavagem de dinheiro (AML);
+- Normas internacionais de segurança da informação (ISO/IEC 27001).
+
+3. 🛡️ CIBERSEGURANÇA E INFRAESTRUTURA CRÍTICA
+A FireChain considera a segurança uma prioridade inegociável:
+- Toda infraestrutura segue um modelo de segurança por camadas (Defense in Depth);
+- Os dados são criptografados em repouso e em trânsito;
+- Auditorias periódicas são realizadas por equipes internas e consultores externos;
+- Eventos suspeitos são tratados com plano de resposta a incidentes (CSIRT).
+
+4. 👥 GESTÃO DE RISCO E TRANSPARÊNCIA PÚBLICA
+- Riscos operacionais, financeiros e tecnológicos são periodicamente revisados;
+- Mantemos mecanismos públicos de verificação de status (mainnet/devnet);
+- O repositório de código é de acesso aberto e auditável via GitHub;
+- Todos os termos, políticas e decisões institucionais são documentadas.
+
+5. 🌱 SUSTENTABILIDADE E IMPACTO
+- A FireChain foi projetada com consumo energético inferior a 1% de redes EVM;
+- Toda a arquitetura evita requisições REST públicas, reduzindo carbono e exposição;
+- Promovemos a educação tecnológica e o acesso equitativo à infraestrutura descentralizada.
+
+6. 🤝 COMPROMISSO COM A COMUNIDADE
+- A governança é orientada pela participação dos usuários e validadores;
+- As atualizações e propostas de melhoria (FIPs) são debatidas de forma aberta;
+- Denúncias, sugestões ou vulnerabilidades podem ser comunicadas com anonimato via SECURITY.md.
+
+7. 📩 CONTATO E SUPORTE
+Para qualquer dúvida, denúncia ética, sugestão ou esclarecimento institucional, contate-nos em: luisguilherme288@gmail.com
+
+---
+
+© FireChain. Todos os direitos reservados. A leitura deste documento não substitui a consulta jurídica especializada.

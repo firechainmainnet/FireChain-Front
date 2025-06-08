@@ -1,0 +1,115 @@
+/* ===================================================
+🌀 ANIMAÇÕES GERAIS
+=================================================== */
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+.animate-fadeIn {
+  animation: fadeIn 0.35s ease-in-out both;
+}
+
+@keyframes slideFade {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-slideFade {
+  animation: slideFade 0.3s ease-out both;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-fadeInUp {
+  animation: fadeInUp 0.4s ease-out both;
+}
+
+@keyframes bounceClick {
+  0%   { transform: scale(1); }
+  40%  { transform: scale(0.95); }
+  100% { transform: scale(1); }
+}
+
+/* ===================================================
+🔢 ANIMAÇÕES NUMÉRICAS — ORACLE
+=================================================== */
+@keyframes oracleRise {
+  0%   { opacity: 0; transform: translateY(4px); }
+  50%  { opacity: 1; transform: translateY(-2px); }
+  100% { transform: translateY(0); }
+}
+@keyframes oracleFall {
+  0%   { opacity: 0; transform: translateY(-4px); }
+  50%  { opacity: 1; transform: translateY(2px); }
+  100% { transform: translateY(0); }
+}
+.animated-rise {
+  animation: oracleRise 0.8s ease-out;
+  color: #22c55e !important;
+}
+.animated-fall {
+  animation: oracleFall 0.8s ease-out;
+  color: #ef4444 !important;
+}
+
+@keyframes numberPulseUp {
+  0%   { opacity: 0.6; transform: scale(0.95); }
+  50%  { opacity: 1; transform: scale(1.02); }
+  100% { transform: scale(1); }
+}
+@keyframes numberPulseDown {
+  0%   { opacity: 0.6; transform: scale(1.05); }
+  50%  { opacity: 1; transform: scale(0.98); }
+  100% { transform: scale(1); }
+}
+.animated-number-up {
+  animation: numberPulseUp 0.5s ease-out;
+}
+.animated-number-down {
+  animation: numberPulseDown 0.5s ease-out;
+}
+
+@keyframes glowFlash {
+  0%   { text-shadow: 0 0 0 transparent; opacity: 0.9; }
+  50%  { text-shadow: 0 0 6px rgba(255,255,255,0.6); opacity: 1; }
+  100% { text-shadow: 0 0 0 transparent; opacity: 0.95; }
+}
+.glow-flash {
+  animation: glowFlash 0.6s ease-in-out;
+}
+
+/* ===================================================
+🔁 SCROLL & TICKER ANIMAÇÕES
+=================================================== */
+@keyframes scrollTicker {
+  0%   { transform: translateX(0%); }
+  100% { transform: translateX(-100%); }
+}
+.animate-scrollTicker {
+  animation: scrollTicker 45s linear infinite;
+  will-change: transform;
+}
+
+@keyframes scrollReverse {
+  0%   { transform: translateX(0%); }
+  100% { transform: translateX(100%); }
+}
+.animate-scrollReverse {
+  animation: scrollReverse 40s linear infinite;
+  will-change: transform;
+}
+
+.ticker-track {
+  display: flex;
+  min-width: 200%;
+  width: fit-content;
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

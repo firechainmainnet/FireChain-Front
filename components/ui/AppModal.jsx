@@ -1,5 +1,5 @@
 // 📁 components/ui/AppModal.jsx
-// 🔐 Modal universal com responsividade refinada para todos os breakpoints FireChain
+// 🔐 Modal universal refinado com glass institucional e responsividade premium FireChain
 
 import * as Dialog from '@radix-ui/react-dialog'
 import { X } from 'lucide-react'
@@ -16,50 +16,49 @@ export default function AppModal({
   return (
     <Dialog.Root open={open} onOpenChange={onOpenChange}>
       <Dialog.Portal>
-        {/* 🔲 Backdrop com leve saturação e blur */}
+        {/* 🔲 Backdrop com saturação e blur institucional */}
         <Dialog.Overlay
-          className="fixed inset-0 z-40 bg-black/40 backdrop-blur-sm backdrop-saturate-[1.2] animate-fadeIn"
+          className="fixed inset-0 z-40 bg-black/40 backdrop-blur-md backdrop-saturate-125 transition-opacity duration-300 animate-fadeIn"
         />
 
-        {/* 🎯 Container centralizado */}
+        {/* 🎯 Container do conteúdo centralizado com alinhamento institucional */}
         <div className="fixed inset-0 z-50 flex items-center justify-center px-4">
           <Dialog.Content
             aria-modal="true"
             className={clsx(
-              // 📱 Responsivo
-              'w-full max-w-md md:max-w-lg xl:max-w-xl max-h-[90vh]',
+              // 📱 Responsivo adaptável
+              'w-full max-w-md sm:max-w-lg xl:max-w-xl max-h-[88vh]',
 
-              // 💎 Glass + border
-              'bg-glass backdrop-blur-md backdrop-saturate-150 text-foreground',
-              'border border-white/10 shadow-xl rounded-2xl',
+              // 💎 Visual institucional
+              'bg-glass text-foreground border border-white/10 shadow-xl rounded-2xl',
 
-              // 📐 Padding adaptado
-              'p-5 sm:p-4 md:p-6 xl:p-10',
+              // 📐 Padding modular
+              'p-5 sm:p-6 md:p-8 xl:p-10',
 
-              // ✍️ Tipografia
+              // ✍️ Tipografia refinada
               'text-sm sm:text-xs xl:text-base',
 
-              // 📜 Scroll
-              'overflow-y-auto scroll-smooth',
+              // 📜 Scroll interno
+              'overflow-y-auto scroll-smooth hide-scrollbar',
 
-              // 🎞️ Entrada suave
+              // 🎞️ Entrada animada
               'animate-slideFade transition-all duration-300 ease-in-out',
 
               'focus:outline-none',
               className
             )}
           >
-            {/* 🧠 Cabeçalho com título e botão de fechar */}
-            <div className="flex items-start justify-between mb-4">
+            {/* 🧠 Cabeçalho com título institucional e botão de fechar */}
+            <div className="flex items-start justify-between mb-5">
               {typeof title === 'string' ? (
-                <Dialog.Title className="text-xl font-semibold leading-tight">
+                <Dialog.Title className="text-lg font-semibold leading-snug tracking-tight">
                   {title}
                 </Dialog.Title>
               ) : (
                 <Dialog.Title asChild>{title}</Dialog.Title>
               )}
 
-              {/* ❌ Botão de fechar */}
+              {/* ❌ Botão de fechar institucional */}
               <Dialog.Close asChild>
                 <button
                   className="text-muted hover:text-primary transition p-1"
@@ -72,7 +71,7 @@ export default function AppModal({
               </Dialog.Close>
             </div>
 
-            {/* 📄 Conteúdo principal do modal */}
+            {/* 📄 Conteúdo renderizado no body do modal */}
             <div className="pr-1">{children}</div>
           </Dialog.Content>
         </div>

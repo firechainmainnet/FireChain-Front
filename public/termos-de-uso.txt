@@ -1,0 +1,66 @@
+🔥 FIRECHAIN — TERMOS DE USO, PRIVACIDADE E SEGURANÇA
+Versão 1.0 – Última atualização: 08/06/2025
+
+Ao utilizar os serviços da FireChain, você concorda integralmente com estes Termos de Uso, Política de Privacidade e Segurança. Leia atentamente antes de prosseguir.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+1. DEFINIÇÕES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+• "Usuário": qualquer indivíduo que utilize sistemas, dApps, interfaces ou comandos CLI relacionados à FireChain.
+• "FireChain": infraestrutura descentralizada proprietária, incluindo blockchain, oracles, nodes e protocolos auxiliares.
+• "Dados Pessoais": qualquer informação identificável, conforme definido pela LGPD (Lei nº 13.709/2018) e GDPR (Regulamento Europeu 2016/679).
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2. ACEITAÇÃO DOS TERMOS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+O uso dos serviços pressupõe leitura, compreensão e aceitação integral dos termos aqui estabelecidos. Se não concordar, não utilize os serviços.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+3. LICENÇA DE USO
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+O código-fonte é licenciado sob os termos da MIT License (veja LICENSE.md). O uso da CLI, SDKs ou dApps é gratuito, mas deve respeitar os limites técnicos e éticos definidos pela FireChain.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+4. PRIVACIDADE & PROTEÇÃO DE DADOS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+• A FireChain coleta o mínimo necessário para operação da rede.
+• Não armazenamos dados sensíveis em servidores centralizados.
+• Nenhuma informação pessoal será vendida ou repassada.
+• O usuário consente que transações e interações sejam públicas, conforme características de blockchains.
+• Estamos em conformidade com LGPD, GDPR e melhores práticas de proteção de dados.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+5. COOKIES E RASTREAMENTO
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+• Aplicações FireChain não utilizam cookies rastreadores de terceiros.
+• Logs técnicos são utilizados apenas para auditoria e segurança.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+6. SEGURANÇA
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+• Toda comunicação é criptografada e auditável.
+• Nós (full/light) podem ser validados via fingerprints.
+• Tokens, chaves privadas e ativos são de total responsabilidade do usuário.
+• Recomendamos o uso de carteiras CLI e assinatura offline para segurança máxima.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+7. RESPONSABILIDADES DO USUÁRIO
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+• Não utilizar a rede para fins ilícitos.
+• Manter-se informado sobre atualizações dos termos.
+• Não explorar falhas ou vulnerabilidades técnicas sem notificação imediata à equipe (ver SECURITY.md).
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+8. LIMITAÇÃO DE RESPONSABILIDADE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+A FireChain não se responsabiliza por perdas diretas ou indiretas, inclusive financeiras, causadas por uso incorreto, falhas de terceiros, ou dependência de contratos inteligentes externos.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+9. LEI APLICÁVEL E FORO
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Estes termos são regidos pela legislação da República Federativa do Brasil. Fica eleito o foro da Comarca de Fortaleza - CE para dirimir eventuais conflitos.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+10. CONTATO
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Dúvidas? Entre em contato com a equipe jurídica: luisguilherme288@gmail.com

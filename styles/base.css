@@ -1,0 +1,61 @@
+/* ===================================================
+🔗 BASE TAILWIND
+=================================================== */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===================================================
+🎨 VARIÁVEIS DE TEMA
+=================================================== */
+
+/* Light Theme */
+:root {
+  --color-bg: #ffffff;
+  --color-fg: #111111;
+
+  --color-primary: #ff5722;
+  --color-secondary: #ffa000;
+  --color-surface: #f9f9f9;
+
+  --color-muted: #5f6368;
+  --color-accent: #e53935;
+  --color-border: #dadce0;
+  --color-glass: rgba(255, 255, 255, 0.7);
+}
+
+/* Dark Theme */
+.dark {
+  --color-bg: #0f0f0f;
+  --color-fg: #ffffff;
+
+  --color-primary: #ff7043;
+  --color-secondary: #ffcc80;
+  --color-surface: #1a1a1a;
+
+  --color-muted: #c2c2c2;
+  --color-accent: #ff8a80;
+  --color-border: #333333;
+  --color-glass: rgba(24, 24, 24, 0.4);
+}
+
+/* ===================================================
+🧱 ESTILOS BASE GLOBAIS
+=================================================== */
+html, body {
+  height: 100%;
+  overflow-x: clip;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-fg);
+  font-family: 'Inter', sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.scroll-optimized {
+  transform: translateZ(0); /* força renderização GPU */
+}

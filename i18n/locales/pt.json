@@ -169,6 +169,7 @@
   },
   "tokenomics": {
     "title": "Tokenomics do FireChain",
+    "subtitle": "Transparência, liquidez e métricas em tempo real para $FIRE",
     "price_firebrl": "Cotação $FIRE (BRL)",
     "price_fireusdt": "Cotação $FIRE (USDT)",
     "variation_24h_brl": "Variação 24h (BRL)",
@@ -188,6 +189,12 @@
     "connected_account": "Conta conectada",
     "copy": "Copiar UID",
     "copy_success": "UID copiado com sucesso!",
-    "supply_max": "Supply Máximo"
+    "supply_max": "Supply Máximo",
+    "tooltip_brl": "Dominância do Real brasileiro (BRL) na liquidez da rede.",
+    "tooltip_usdt": "Participação da stablecoin USDT na dominância total.",
+    "tooltip_btc": "Porcentagem do Bitcoin no volume institucional.",
+    "tooltip_eth": "Porcentagem do Ethereum na base de contratos e liquidez.",
+    "group_stable": "Dominância de moedas estáveis",
+    "group_crypto": "Dominância de criptoativos"
   }
 }

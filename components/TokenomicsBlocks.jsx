@@ -1,5 +1,5 @@
 // 📁 components/TokenomicsBlocks.jsx
-// 🔥 Painel institucional refinado com multilíngue e ícone tech institucional
+// 🔥 Painel institucional refinado com composição modular premium multilíngue
 
 import {
   OracleBlock,
@@ -12,11 +12,9 @@ import OracleBlockDominanceBadges from './ui/OracleBlockDominanceBadges'
 import OraclePairsSlider from './ui/OraclePairsSlider'
 import ConnectedUserUID from './ui/ConnectedUserUID'
 import { useTranslation } from '../i18n/LanguageContext'
-import { FaReact } from 'react-icons/fa' // 🌐 Ícone institucional tech moderno
 
 export default function TokenomicsBlocks({ data, user }) {
   const { t } = useTranslation()
-
   if (!data) return null
 
   const {
@@ -29,7 +27,8 @@ export default function TokenomicsBlocks({ data, user }) {
     variacao_24h_usdt
   } = data
 
-  // 📊 Pares principais (exceto FIRE)
+  const SUPPLY_MAX = 33_000_000
+
   const pairs = [
     {
       label: t('tokenomics.price_btcbrl'),
@@ -60,40 +59,33 @@ export default function TokenomicsBlocks({ data, user }) {
   ]
 
   return (
-    <div className="flex-1 flex flex-col justify-between">
-      <div className="space-y-6">
-        {/* 💠 Título institucional com ícone tech */}
-        <h2 className="text-xl font-semibold text-foreground flex items-center gap-2">
-          <FaReact className="text-primary drop-shadow-sm" size={18} />
-          {t('tokenomics.title')}
-        </h2>
+    <section className="flex-1 flex flex-col justify-between">
+      <div className="flex flex-col gap-6">
 
-        {/* 🔥 Cotação com badges (supply, max, liquidez) */}
+        {/* 🔢 Cotação institucional com badges premium */}
         <OracleBlockWithBadges
           usdtPrice={usdt.price_fireusdt}
           brlPrice={brl.price_firebrl}
           supply={supply_circulante}
-          supplyMax={33000000}
+          supplyMax={SUPPLY_MAX}
           variation={variacao_24h_usdt}
           liquidezBrl={liquidez_brl}
           liquidezUsdt={liquidez_usdt}
         />
 
-        {/* 🔻 Separador institucional */}
-        <div className="border-t border-white/10 mt-4 pt-4" />
-
-        {/* 📊 Dominância horizontal com badges */}
+        {/* 🧠 Bloco de dominância com agrupamento visual refinado */}
         <OracleBlockDominanceBadges data={fire_internal_dominance} />
 
-        {/* 🔻 Separador institucional */}
-        <div className="border-t border-white/10 mt-4 pt-4" />
-
-        {/* 🧭 Slider horizontal de cotações não-FIRE */}
+        {/* 💹 Pares de preços em slide contínuo institucional */}
         <OraclePairsSlider pairs={pairs} />
       </div>
 
-      {/* 🔐 UID da conta conectada */}
-      {user && <ConnectedUserUID user={user} t={t} />}
-    </div>
+      {/* 🔐 Identidade do usuário conectado com UID institucional */}
+      {user && (
+        <div className="mt-6">
+          <ConnectedUserUID user={user} t={t} />
+        </div>
+      )}
+    </section>
   )
 }
