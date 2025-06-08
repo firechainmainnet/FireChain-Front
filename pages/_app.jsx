@@ -2,8 +2,7 @@
 // 🧠 Core da app com tema, idioma, autenticação e toasts institucionais
 
 import '../styles/globals.css'
-import 'react-tooltip/dist/react-tooltip.css' // ✅ Tooltip ok
-// ❌ Removido: react-hot-toast.css manual
+import 'react-tooltip/dist/react-tooltip.css'
 
 import { ThemeProvider } from '../context/ThemeContext'
 import { LanguageProvider } from '../i18n/LanguageContext'
@@ -21,13 +20,17 @@ export default function App({ Component, pageProps }) {
         </LanguageProvider>
       </ThemeProvider>
 
-      {/* 🔔 Toaster institucional global */}
+      {/* 🔔 Toaster institucional com suporte a temas */}
       <Toaster
         position="top-center"
         toastOptions={{
-          duration: 6000,
-          className:
-            'bg-glass text-foreground shadow-lg border border-border backdrop-blur-md rounded-xl text-sm px-4 py-3 z-[60]'
+          duration: 4000,
+          className: `
+            dark:bg-surface dark:text-white dark:border dark:border-white/10
+            bg-white text-black border border-black/10
+            shadow-lg backdrop-blur-md rounded-xl text-sm px-4 py-3 z-toast
+            transition-all
+          `
         }}
       />
     </>

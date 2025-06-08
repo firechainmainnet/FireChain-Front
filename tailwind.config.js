@@ -1,3 +1,5 @@
+// 📁 tailwind.config.js
+
 const defaultTheme = require('tailwindcss/defaultTheme')
 
 module.exports = {
@@ -42,10 +44,15 @@ module.exports = {
         slideFade: {
           '0%': { opacity: 0, transform: 'translateY(8px)' },
           '100%': { opacity: 1, transform: 'translateY(0)' }
+        },
+        fadeInUp: {
+          '0%': { opacity: 0, transform: 'translateY(12px)' },
+          '100%': { opacity: 1, transform: 'translateY(0)' }
         }
       },
       animation: {
-        slideFade: 'slideFade 0.3s ease-out'
+        slideFade: 'slideFade 0.3s ease-out',
+        fadeInUp: 'fadeInUp 0.4s ease-out forwards'
       },
       transitionProperty: {
         theme: 'background-color, color, border-color'

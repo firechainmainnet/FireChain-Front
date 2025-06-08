@@ -48,6 +48,10 @@ body {
   font-family: 'Inter', sans-serif;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
+html, body {
+  height: 100%;
+  overflow-x: clip;
+}
 
 /* ============================================
 🧊 GLASS E SOMBRAS PREMIUM
@@ -56,30 +60,26 @@ body {
   @apply backdrop-blur-md border border-white/10 rounded-lg;
   background-color: var(--color-glass);
 }
-
 .shadow-glass {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.03);
 }
-
 .dark .shadow-glass {
   box-shadow: 0 3px 12px rgba(0, 0, 0, 0.6), 0 0 1px rgba(255, 255, 255, 0.03);
 }
 
 /* ============================================
-✨ HOVER GLINT PREMIUM (visível em ambos temas)
+✨ HOVER GLINT PREMIUM
 ============================================ */
 @keyframes hoverGlint {
   0%   { background-position: -200% 0; }
   100% { background-position: 200% 0; }
 }
-
 .hover-glint {
   position: relative;
   z-index: 1;
   overflow: hidden;
   isolation: isolate;
 }
-
 .hover-glint::before {
   content: '';
   position: absolute;
@@ -87,32 +87,24 @@ body {
   z-index: 2;
   pointer-events: none;
   border-radius: inherit;
-
-  background: linear-gradient(
-    120deg,
-    transparent 0%,
-    rgba(255, 255, 255, 0.2) 30%,
-    rgba(255, 255, 255, 0.45) 50%,
-    transparent 70%
-  );
+  background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.2) 30%, rgba(255,255,255,0.45) 50%, transparent 70%);
   background-size: 200% 100%;
   background-position: -200% 0;
   animation: hoverGlint 2.5s ease-in-out infinite;
   mix-blend-mode: screen;
   opacity: 0.9;
 }
-
 .dark .hover-glint::before {
   mix-blend-mode: overlay;
   opacity: 0.85;
 }
 
 /* ============================================
-💥 BOUNCE CLICK — Feedback de clique
+💥 BOUNCE CLICK
 ============================================ */
 @keyframes bounceClick {
-  0%   { transform: scale(1); }
-  40%  { transform: scale(0.95); }
+  0% { transform: scale(1); }
+  40% { transform: scale(0.95); }
   100% { transform: scale(1); }
 }
 .bounce-on-click:active {
@@ -120,7 +112,7 @@ body {
 }
 
 /* ============================================
-🧠 TOOLTIP PASSIVO — Fade sutil
+🧠 TOOLTIP PASSIVO
 ============================================ */
 @keyframes fadeTooltipPassive {
   from { opacity: 0; transform: translateY(6px); }
@@ -131,7 +123,7 @@ body {
 }
 
 /* ============================================
-🌟 HOVER GLOW — Brilho leve premium
+🌟 HOVER GLOW
 ============================================ */
 .hover-glow:hover {
   filter: brightness(1.08) contrast(1.1) saturate(1.15);
@@ -150,7 +142,7 @@ body {
 .border-border    { border-color: var(--color-border); }
 
 /* ============================================
-🎞️ ANIMAÇÕES AUXILIARES (fade, slide)
+🎞️ ANIMAÇÕES GERAIS
 ============================================ */
 @keyframes fadeIn {
   from { opacity: 0; }
@@ -159,7 +151,6 @@ body {
 .animate-fadeIn {
   animation: fadeIn 0.35s ease-in-out both;
 }
-
 @keyframes slideFade {
   from { opacity: 0; transform: translateY(6px); }
   to   { opacity: 1; transform: translateY(0); }
@@ -167,32 +158,102 @@ body {
 .animate-slideFade {
   animation: slideFade 0.3s ease-out both;
 }
-/* 📁 globals.css */
-
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
+@keyframes fadeInUp {
+  0%   { opacity: 0; transform: translateY(12px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+.animate-fadeInUp {
+  animation: fadeInUp 0.4s ease-out both;
 }
 
-.animate-blink {
-  animation: blink 1s step-start infinite;
+/* ============================================
+🔥 ANIMAÇÕES ORACLE — Cores e dinâmica
+============================================ */
+.animated-rise {
+  animation: oracleRise 0.8s ease-out;
+  color: #22c55e !important;
+}
+.animated-fall {
+  animation: oracleFall 0.8s ease-out;
+  color: #ef4444 !important;
+}
+@keyframes oracleRise {
+  0%   { opacity: 0; transform: translateY(4px); }
+  50%  { opacity: 1; transform: translateY(-2px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+@keyframes oracleFall {
+  0%   { opacity: 0; transform: translateY(-4px); }
+  50%  { opacity: 1; transform: translateY(2px); }
+  100% { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes fadeInDown {
+/* ============================================
+💎 ORACLE PRICE LINE
+============================================ */
+.oracle-price-line {
+  @apply bg-glass border border-white/10 rounded-xl px-4 py-3 flex justify-between items-center text-sm shadow-md;
+}
+.oracle-price-number {
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  transition: color 0.3s ease;
+}
+
+/* ============================================
+🔁 TICKER SCROLLING PREMIUM
+============================================ */
+@keyframes scrollTicker {
+  0%   { transform: translateX(0%); }
+  100% { transform: translateX(-100%); }
+}
+.animate-scrollTicker {
+  animation: scrollTicker 45s linear infinite;
+  will-change: transform;
+}
+.ticker-track {
+  display: flex;
+  min-width: 200%;
+  width: fit-content;
+}
+
+/* ============================================
+🔢 FLUXO NUMÉRICO + BRILHO
+============================================ */
+@keyframes numberPulseUp {
+  0%   { opacity: 0.6; transform: scale(0.95); }
+  50%  { opacity: 1; transform: scale(1.02); }
+  100% { transform: scale(1); }
+}
+@keyframes numberPulseDown {
+  0%   { opacity: 0.6; transform: scale(1.05); }
+  50%  { opacity: 1; transform: scale(0.98); }
+  100% { transform: scale(1); }
+}
+.animated-number-up {
+  animation: numberPulseUp 0.5s ease-out;
+}
+.animated-number-down {
+  animation: numberPulseDown 0.5s ease-out;
+}
+@keyframes glowFlash {
+  0%   { text-shadow: 0 0 0 transparent; opacity: 0.9; }
+  50%  { text-shadow: 0 0 6px rgba(255,255,255,0.6); opacity: 1; }
+  100% { text-shadow: 0 0 0 transparent; opacity: 0.95; }
+}
+.glow-flash {
+  animation: glowFlash 0.6s ease-in-out;
+}
+@keyframes scrollReverse {
   0% {
-    opacity: 0;
-    transform: translateY(-10px);
+    transform: translateX(0%);
   }
   100% {
-    opacity: 1;
-    transform: translateY(0);
+    transform: translateX(100%);
   }
 }
 
-.animate-fadeInDown {
-  animation: fadeInDown 0.6s ease-out forwards;
-}
-html, body {
-  height: 100%;
-  overflow-x: hidden;
+.animate-scrollReverse {
+  animation: scrollReverse 40s linear infinite;
+  will-change: transform;
 }

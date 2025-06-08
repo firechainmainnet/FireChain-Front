@@ -166,5 +166,27 @@
     "invalid": "Credenciais inválidas ou e-mail não verificado.",
     "error": "Erro inesperado. Tente novamente.",
     "registerSuccess": "Conta criada com sucesso. Verifique seu e-mail."
+  },
+  "tokenomics": {
+    "title": "Tokenomics do FireChain",
+    "price_firebrl": "Cotação $FIRE (BRL)",
+    "price_fireusdt": "Cotação $FIRE (USDT)",
+    "variation_24h_brl": "Variação 24h (BRL)",
+    "variation_24h_usdt": "Variação 24h (USDT)",
+    "price_btcbrl": "Cotação BTC (BRL)",
+    "price_ethbrl": "Cotação ETH (BRL)",
+    "price_btcusdt": "Cotação BTC (USDT)",
+    "price_ethusdt": "Cotação ETH (USDT)",
+    "price_usdtbrl": "Cotação USDT (BRL)",
+    "dominance_brl": "Dominância do $FIRE (BRL)",
+    "dominance_btc": "Dominância do $FIRE (BTC)",
+    "dominance_eth": "Dominância do $FIRE (ETH)",
+    "dominance_usdt": "Dominância do $FIRE (USDT)",
+    "liquidity_brl": "Liquidez em BRL",
+    "liquidity_usdt": "Liquidez em USDT",
+    "supply": "Supply Circulante",
+    "connected_account": "Conta conectada",
+    "copy": "Copiar UID",
+    "copy_success": "UID copiado com sucesso!"
   }
 }

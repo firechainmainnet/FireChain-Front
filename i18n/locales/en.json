@@ -166,5 +166,27 @@
     "invalid": "Invalid credentials or unverified email.",
     "error": "Unexpected error. Please try again.",
     "registerSuccess": "Account created successfully. Please verify your email."
+  },
+  "tokenomics": {
+    "title": "FireChain Tokenomics",
+    "price_firebrl": "$FIRE Rate (BRL)",
+    "price_fireusdt": "$FIRE Rate (USDT)",
+    "variation_24h_brl": "24h Variation (BRL)",
+    "variation_24h_usdt": "24h Variation (USDT)",
+    "price_btcbrl": "BTC Rate (BRL)",
+    "price_ethbrl": "ETH Rate (BRL)",
+    "price_btcusdt": "BTC Rate (USDT)",
+    "price_ethusdt": "ETH Rate (USDT)",
+    "price_usdtbrl": "USDT Rate (BRL)",
+    "dominance_brl": "$FIRE Dominance (BRL)",
+    "dominance_btc": "$FIRE Dominance (BTC)",
+    "dominance_eth": "$FIRE Dominance (ETH)",
+    "dominance_usdt": "$FIRE Dominance (USDT)",
+    "liquidity_brl": "Liquidity in BRL",
+    "liquidity_usdt": "Liquidity in USDT",
+    "supply": "Circulating Supply",
+    "connected_account": "Connected account",
+    "copy": "Copy UID",
+    "copy_success": "UID copied successfully!"
   }
 }

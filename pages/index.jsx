@@ -13,6 +13,7 @@ import Footer from '../components/Footer'
 const Navbar = lazy(() => import('../components/Navbar'))
 const SecurityCTA = lazy(() => import('../components/SecurityCTA'))
 const InstitutionalSlider = lazy(() => import('../components/InstitutionalSlider'))
+const TokenomicsPanel = lazy(() => import('../components/TokenomicsPanel')) // ✅ Novo
 
 export default function Home() {
   const { t, ready } = useTranslation()
@@ -41,6 +42,11 @@ export default function Home() {
           {/* 🎟️ Slider institucional com pílulas */}
           <div className="animate-fadeInDown">
             <InstitutionalSlider />
+          </div>
+
+          {/* 💹 Painel institucional de tokenomics */}
+          <div className="w-full animate-fadeInUp">
+            <TokenomicsPanel />
           </div>
 
           {/* 🧠 CTA direto opcional */}
