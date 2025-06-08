@@ -1,8 +1,12 @@
+// 📁 components/ui/OracleBlockWithBadges.jsx
+// 🔥 Painel institucional com multilíngue e badges animadas
+
 import Image from 'next/image'
 import AnimatedNumber from './AnimatedNumber'
 import { FaArrowUp, FaArrowDown, FaCoins, FaDollarSign } from 'react-icons/fa'
 import { BiTransfer } from 'react-icons/bi'
 import { HiOutlineLockClosed } from 'react-icons/hi2'
+import { useTranslation } from '../../i18n/LanguageContext'
 
 export default function OracleBlockWithBadges({
   usdtPrice,
@@ -13,6 +17,7 @@ export default function OracleBlockWithBadges({
   liquidezBrl,
   liquidezUsdt
 }) {
+  const { t } = useTranslation()
   const isPositive = variation >= 0
 
   return (
@@ -26,7 +31,7 @@ export default function OracleBlockWithBadges({
     ">
       {/* 🔖 Título */}
       <h3 className="text-sm font-medium text-neutral-700 dark:text-white/60 tracking-wide">
-        Cotação $FIRE (USDT)
+        {t('tokenomics.price_fireusdt')}
       </h3>
 
       {/* 🔥 Cotação principal */}
@@ -64,30 +69,30 @@ export default function OracleBlockWithBadges({
       {/* 🪙 Badges de Supply e Máximo */}
       <div className="flex flex-wrap justify-center items-center gap-2">
         <Badge
-          label="Supply"
+          label={t('tokenomics.supply')}
           value={supply}
           icon={<BiTransfer className="text-orange-600 dark:text-orange-300" size={14} />}
           color="bg-orange-100 text-orange-700 dark:bg-orange-500/10 dark:text-orange-300 border border-orange-300 dark:border-orange-400/20"
         />
         <Badge
-          label="Máximo"
+          label={t('tokenomics.supply_max')}
           value={supplyMax}
           icon={<HiOutlineLockClosed className="text-neutral-600 dark:text-white/70" size={13} />}
           color="bg-neutral-100 text-neutral-700 dark:bg-white/10 dark:text-white border border-neutral-300 dark:border-white/10"
         />
       </div>
 
-      {/* 💧 Badges de Liquidez */}
+      {/* 💧 Badges de Liquidez com animação */}
       <div className="flex flex-wrap justify-center items-center gap-2">
         <Badge
-          label="BRL"
+          label={t('tokenomics.liquidity_brl')}
           value={liquidezBrl}
           prefix="R$ "
           icon={<FaCoins className="text-blue-600 dark:text-blue-300" size={13} />}
           color="bg-blue-100 text-blue-700 dark:bg-blue-500/10 dark:text-blue-300 border border-blue-300 dark:border-blue-400/20"
         />
         <Badge
-          label="USDT"
+          label={t('tokenomics.liquidity_usdt')}
           value={liquidezUsdt}
           prefix="$ "
           icon={<FaDollarSign className="text-green-600 dark:text-green-300" size={13} />}
@@ -98,20 +103,18 @@ export default function OracleBlockWithBadges({
   )
 }
 
-// 🔘 Badge institucional
+// 🔘 Badge institucional com animação multilíngue
 function Badge({ label, value, prefix = '', icon, color }) {
   return (
     <div className={`inline-flex items-center gap-1 px-3 py-[6px] rounded-full text-xs font-medium shadow-sm min-w-max ${color}`}>
       {icon}
       {label}:{' '}
-      <span className="font-semibold font-mono tabular-nums inline-block min-w-[80px] text-right">
-        {prefix}{format(value)}
-      </span>
+      <AnimatedNumber
+        value={value}
+        prefix={prefix}
+        decimals={2}
+        className="font-semibold font-mono tabular-nums inline-block min-w-[80px] text-right"
+      />
     </div>
   )
-}
-
-// 📊 Formatador BR
-function format(number) {
-  return Number(number).toLocaleString('pt-BR', { maximumFractionDigits: 2 })
 }

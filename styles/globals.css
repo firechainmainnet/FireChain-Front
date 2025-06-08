@@ -257,3 +257,20 @@ html, body {
   animation: scrollReverse 40s linear infinite;
   will-change: transform;
 }
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+}
+
+.scroll-optimized {
+  transform: translateZ(0); /* força renderização em GPU */
+}

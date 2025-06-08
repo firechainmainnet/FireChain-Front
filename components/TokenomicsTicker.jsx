@@ -1,28 +1,51 @@
 // 📁 components/TokenomicsTicker.jsx
-// 🔁 Ticker institucional premium com scroll fluido e pills visuais
+// 🔁 Ticker institucional premium com multilíngue e scroll fluido
 
 import useTokenomicsData from '../hooks/useTokenomicsData'
 import Image from 'next/image'
 import { FaArrowUp, FaArrowDown } from 'react-icons/fa'
+import { useTranslation } from '../i18n/LanguageContext'
 
 export default function TokenomicsTicker() {
   const { data, loading } = useTokenomicsData()
+  const { t } = useTranslation()
+
   if (loading || !data) return null
 
   const { brl, usdt, variacao_24h_usdt } = data
 
   const pairs = [
-    { label: 'BTC/BRL', value: brl.price_btcbrl, icon: '/btc.png' },
-    { label: 'ETH/BRL', value: brl.price_ethbrl, icon: '/eth.png' },
-    { label: 'USDT/BRL', value: brl.price_usdtbrl, icon: '/usdt.png' },
     {
-      label: 'FIRE/USDT',
+      label: t('tokenomics.price_btcbrl'),
+      value: brl.price_btcbrl,
+      icon: '/btc.png'
+    },
+    {
+      label: t('tokenomics.price_ethbrl'),
+      value: brl.price_ethbrl,
+      icon: '/eth.png'
+    },
+    {
+      label: t('tokenomics.price_usdtbrl'),
+      value: brl.price_usdtbrl,
+      icon: '/usdt.png'
+    },
+    {
+      label: t('tokenomics.price_fireusdt'),
       value: usdt.price_fireusdt,
       variation: variacao_24h_usdt,
       icon: '/logo.png'
     },
-    { label: 'BTC/USDT', value: usdt.price_btcusdt, icon: '/btc.png' },
-    { label: 'ETH/USDT', value: usdt.price_ethusdt, icon: '/eth.png' }
+    {
+      label: t('tokenomics.price_btcusdt'),
+      value: usdt.price_btcusdt,
+      icon: '/btc.png'
+    },
+    {
+      label: t('tokenomics.price_ethusdt'),
+      value: usdt.price_ethusdt,
+      icon: '/eth.png'
+    }
   ]
 
   return (

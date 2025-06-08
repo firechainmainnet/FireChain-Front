@@ -187,6 +187,7 @@
     "supply": "Supply Circulante",
     "connected_account": "Conta conectada",
     "copy": "Copiar UID",
-    "copy_success": "UID copiado com sucesso!"
+    "copy_success": "UID copiado com sucesso!",
+    "supply_max": "Supply Máximo"
   }
 }

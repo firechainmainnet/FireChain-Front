@@ -1,3 +1,6 @@
+// 📁 components/TokenomicsBlocks.jsx
+// 🔥 Painel institucional refinado com multilíngue e ícone tech institucional
+
 import {
   OracleBlock,
   OracleBlockMinimal,
@@ -6,9 +9,14 @@ import {
 
 import OracleBlockWithBadges from './ui/OracleBlockWithBadges'
 import OracleBlockDominanceBadges from './ui/OracleBlockDominanceBadges'
+import OraclePairsSlider from './ui/OraclePairsSlider'
 import ConnectedUserUID from './ui/ConnectedUserUID'
+import { useTranslation } from '../i18n/LanguageContext'
+import { FaReact } from 'react-icons/fa' // 🌐 Ícone institucional tech moderno
 
-export default function TokenomicsBlocks({ data, t, user }) {
+export default function TokenomicsBlocks({ data, user }) {
+  const { t } = useTranslation()
+
   if (!data) return null
 
   const {
@@ -21,12 +29,43 @@ export default function TokenomicsBlocks({ data, t, user }) {
     variacao_24h_usdt
   } = data
 
+  // 📊 Pares principais (exceto FIRE)
+  const pairs = [
+    {
+      label: t('tokenomics.price_btcbrl'),
+      value: brl.price_btcbrl,
+      icon: '/btc.png'
+    },
+    {
+      label: t('tokenomics.price_ethbrl'),
+      value: brl.price_ethbrl,
+      icon: '/eth.png'
+    },
+    {
+      label: t('tokenomics.price_usdtbrl'),
+      value: brl.price_usdtbrl,
+      icon: '/usdt.png',
+      decimals: 3
+    },
+    {
+      label: t('tokenomics.price_btcusdt'),
+      value: usdt.price_btcusdt,
+      icon: '/btc.png'
+    },
+    {
+      label: t('tokenomics.price_ethusdt'),
+      value: usdt.price_ethusdt,
+      icon: '/eth.png'
+    }
+  ]
+
   return (
     <div className="flex-1 flex flex-col justify-between">
       <div className="space-y-6">
-        {/* 🔥 Título */}
+        {/* 💠 Título institucional com ícone tech */}
         <h2 className="text-xl font-semibold text-foreground flex items-center gap-2">
-          🔥 {t('tokenomics.title')}
+          <FaReact className="text-primary drop-shadow-sm" size={18} />
+          {t('tokenomics.title')}
         </h2>
 
         {/* 🔥 Cotação com badges (supply, max, liquidez) */}
@@ -49,42 +88,8 @@ export default function TokenomicsBlocks({ data, t, user }) {
         {/* 🔻 Separador institucional */}
         <div className="border-t border-white/10 mt-4 pt-4" />
 
-        {/* 💠 Pares principais refinados */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 mb-6">
-          <OracleBlockMinimal
-            label="BTC/BRL"
-            value={brl.price_btcbrl}
-            prefix="R$ "
-            iconSrc="/btc.png"
-          />
-          <OracleBlockMinimal
-            label="ETH/BRL"
-            value={brl.price_ethbrl}
-            prefix="R$ "
-            iconSrc="/eth.png"
-          />
-          <OracleBlockMinimal
-            label="USDT/BRL"
-            value={brl.price_usdtbrl}
-            prefix="R$ "
-            decimals={3}
-            iconSrc="/usdt.png"
-          />
-          <OracleBlockMinimal
-            label="BTC/USDT"
-            value={usdt.price_btcusdt}
-            prefix="$ "
-            decimals={2}
-            iconSrc="/btc.png"
-          />
-          <OracleBlockMinimal
-            label="ETH/USDT"
-            value={usdt.price_ethusdt}
-            prefix="$ "
-            decimals={2}
-            iconSrc="/eth.png"
-          />
-        </div>
+        {/* 🧭 Slider horizontal de cotações não-FIRE */}
+        <OraclePairsSlider pairs={pairs} />
       </div>
 
       {/* 🔐 UID da conta conectada */}

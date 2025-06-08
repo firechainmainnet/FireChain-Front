@@ -187,6 +187,7 @@
     "supply": "Circulating Supply",
     "connected_account": "Connected account",
     "copy": "Copy UID",
-    "copy_success": "UID copied successfully!"
+    "copy_success": "UID copied successfully!",
+    "supply_max": "Max Supply"
   }
 }
