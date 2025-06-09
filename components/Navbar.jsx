@@ -1,5 +1,5 @@
 // 📁 components/Navbar.jsx
-// 🔝 Navbar institucional com conta logada (e-mail, UID, verificação) ou autenticação
+// 🔝 Navbar institucional refinada com status visual + UID, e-mail, verificação
 
 import { useEffect, useState } from 'react'
 import useScrollDirection from '../hooks/useScrollDirection'
@@ -13,11 +13,13 @@ import AppDropdown from './ui/AppDropdown'
 import AuthModal from './AuthModal'
 import AppButton from './ui/AppButton'
 import { useAuth } from '../context/AuthContext'
+import clsx from 'clsx'
 
 export default function Navbar() {
   const scrollDirection = useScrollDirection()
   const [hidden, setHidden] = useState(false)
   const [open, setOpen] = useState(false)
+  const [justLoggedIn, setJustLoggedIn] = useState(false)
 
   const { user, logout, resendVerification } = useAuth()
 
@@ -25,39 +27,60 @@ export default function Navbar() {
     setHidden(scrollDirection === 'down')
   }, [scrollDirection])
 
+  useEffect(() => {
+    if (user) {
+      setJustLoggedIn(true)
+      const timer = setTimeout(() => setJustLoggedIn(false), 600)
+      return () => clearTimeout(timer)
+    }
+  }, [user])
+
+  const authColor = user ? 'text-green-500' : 'text-muted'
+  const glowEffect = justLoggedIn ? 'animate-pulse-glow' : ''
+
   return (
     <>
       <nav
-        className={`
-          sticky top-4 z-50 transition-transform duration-500 ease-in-out mx-auto max-w-fit
-          px-4 py-2 bg-glass backdrop-blur-md rounded-full shadow-glass flex items-center gap-3
-          ${hidden ? 'translate-y-[-100%] opacity-0' : 'translate-y-0 opacity-100'}
-        `}
+        className={clsx(
+          'sticky top-4 z-50 transition-transform duration-500 ease-in-out mx-auto max-w-fit',
+          'px-4 py-2 bg-glass backdrop-blur-md rounded-full shadow-glass flex items-center gap-3',
+          hidden ? 'translate-y-[-100%] opacity-0' : 'translate-y-0 opacity-100'
+        )}
       >
-        {/* 🌙 Tema */}
         <ThemeSwitcher />
-
-        {/* 🌍 Idioma */}
         <LanguageDropdown />
 
         {/* 👤 Conta */}
         {!user ? (
-          <button
+          <div
+            role="button"
+            tabIndex={0}
             onClick={() => setOpen(true)}
-            className="p-2 rounded-full text-primary hover:brightness-110 hover:scale-105 transition duration-200 focus:outline-none"
+            className={clsx(
+              'p-2 rounded-full transition duration-200 focus:outline-none',
+              'hover:brightness-110 hover:scale-105',
+              authColor
+            )}
             aria-label="Entrar"
           >
             <CgProfile className="w-5 h-5" />
-          </button>
+          </div>
         ) : (
           <AppDropdown
             trigger={
-              <button
-                className="p-2 rounded-full text-primary hover:brightness-110 hover:scale-105 transition duration-200 focus:outline-none"
+              <div
+                role="button"
+                tabIndex={0}
+                className={clsx(
+                  'p-2 rounded-full transition duration-200 focus:outline-none',
+                  'hover:brightness-110 hover:scale-105',
+                  authColor,
+                  glowEffect
+                )}
                 aria-label="Conta"
               >
                 <CgProfile className="w-5 h-5" />
-              </button>
+              </div>
             }
             items={[
               {
@@ -65,19 +88,14 @@ export default function Navbar() {
                 disabled: true,
                 label: (
                   <div className="flex flex-col gap-2 text-xs text-muted leading-tight max-w-[220px]">
-                    {/* 📧 Email */}
                     <div className="flex items-center gap-2 break-all">
                       <HiOutlineMail className="w-4 h-4 text-primary" />
                       {user.email}
                     </div>
-
-                    {/* 🔐 UID */}
                     <div className="flex items-center gap-2 break-all">
                       <RiFingerprintLine className="w-4 h-4 text-primary" />
                       <span className="truncate">{user.uid}</span>
                     </div>
-
-                    {/* ✅ Verificação */}
                     <div className="flex items-center gap-2">
                       {user.emailVerified ? (
                         <>
@@ -88,7 +106,9 @@ export default function Navbar() {
                         <>
                           <FaTimesCircle className="w-4 h-4 text-red-500" />
                           <button
+                            type="button"
                             onClick={(e) => {
+                              e.preventDefault()
                               e.stopPropagation()
                               resendVerification()
                             }}
@@ -111,7 +131,6 @@ export default function Navbar() {
         )}
       </nav>
 
-      {/* 🔐 Modal de login/registro */}
       <AuthModal open={open} onClose={() => setOpen(false)} />
     </>
   )

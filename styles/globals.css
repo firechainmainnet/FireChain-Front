@@ -1,12 +1,289 @@
 /* ===================================================
-🧱 FIRECHAIN GLOBAL STYLES (MODULARIZADO)
+🔗 BASE TAILWIND
+=================================================== */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===================================================
+🎨 VARIÁVEIS DE TEMA
+=================================================== */
+/* Light Theme */
+:root {
+  --color-bg: #ffffff;
+  --color-fg: #111111;
+
+  --color-primary: #ff5722;
+  --color-secondary: #ffa000;
+  --color-surface: #f9f9f9;
+
+  --color-muted: #5f6368;
+  --color-accent: #e53935;
+  --color-border: #dadce0;
+  --color-glass: rgba(255, 255, 255, 0.7);
+}
+
+/* Dark Theme */
+.dark {
+  --color-bg: #0f0f0f;
+  --color-fg: #ffffff;
+
+  --color-primary: #ff7043;
+  --color-secondary: #ffcc80;
+  --color-surface: #1a1a1a;
+
+  --color-muted: #c2c2c2;
+  --color-accent: #ff8a80;
+  --color-border: #333333;
+  --color-glass: rgba(24, 24, 24, 0.4);
+}
+
+/* ===================================================
+🧱 ESTILOS BASE GLOBAIS
+=================================================== */
+html, body {
+  height: 100%;
+  overflow-x: clip;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+}
+body {
+  background-color: var(--color-bg);
+  color: var(--color-fg);
+  font-family: 'Inter', sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.scroll-optimized {
+  transform: translateZ(0); /* força renderização GPU */
+}
+
+/* ===================================================
+💠 CLASSES INSTITUCIONAIS
+=================================================== */
+.glass {
+  @apply backdrop-blur-md border border-white/10 rounded-lg;
+  background-color: var(--color-glass);
+}
+.shadow-glass {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.03);
+}
+.dark .shadow-glass {
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.6), 0 0 1px rgba(255, 255, 255, 0.03);
+}
+
+/* ===================================================
+🎨 CORES UTILITÁRIAS
+=================================================== */
+.text-primary     { color: var(--color-primary); }
+.text-muted       { color: var(--color-muted); }
+.text-foreground  { color: var(--color-fg); }
+.bg-background    { background-color: var(--color-bg); }
+.bg-surface       { background-color: var(--color-surface); }
+.border-border    { border-color: var(--color-border); }
+
+/* ===================================================
+✨ HOVER E FEEDBACK
+=================================================== */
+.hover-glow:hover {
+  filter: brightness(1.08) contrast(1.1) saturate(1.15);
+  transform: scale(1.015);
+  transition: all 0.25s ease-in-out;
+}
+.bounce-on-click:active {
+  animation: bounceClick 0.25s ease-out;
+}
+.hover-glint {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  isolation: isolate;
+}
+.hover-glint::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  border-radius: inherit;
+  background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.2) 30%, rgba(255,255,255,0.45) 50%, transparent 70%);
+  background-size: 200% 100%;
+  background-position: -200% 0;
+  animation: hoverGlint 2.5s ease-in-out infinite;
+  mix-blend-mode: screen;
+  opacity: 0.9;
+}
+.dark .hover-glint::before {
+  mix-blend-mode: overlay;
+  opacity: 0.85;
+}
+
+/* ===================================================
+🌀 ANIMAÇÕES GERAIS
+=================================================== */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+.animate-fadeIn {
+  animation: fadeIn 0.35s ease-in-out both;
+}
+
+@keyframes slideFade {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-slideFade {
+  animation: slideFade 0.3s ease-out both;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-fadeInUp {
+  animation: fadeInUp 0.4s ease-out both;
+}
+
+@keyframes bounceClick {
+  0% { transform: scale(1); }
+  40% { transform: scale(0.95); }
+  100% { transform: scale(1); }
+}
+
+/* ===================================================
+🔢 ANIMAÇÕES NUMÉRICAS — ORACLE
+=================================================== */
+@keyframes oracleRise {
+  0% { opacity: 0; transform: translateY(4px); }
+  50% { opacity: 1; transform: translateY(-2px); }
+  100% { transform: translateY(0); }
+}
+@keyframes oracleFall {
+  0% { opacity: 0; transform: translateY(-4px); }
+  50% { opacity: 1; transform: translateY(2px); }
+  100% { transform: translateY(0); }
+}
+.animated-rise {
+  animation: oracleRise 0.8s ease-out;
+  color: #22c55e !important;
+}
+.animated-fall {
+  animation: oracleFall 0.8s ease-out;
+  color: #ef4444 !important;
+}
+
+@keyframes numberPulseUp {
+  0%   { opacity: 0.6; transform: scale(0.95); }
+  50%  { opacity: 1; transform: scale(1.02); }
+  100% { transform: scale(1); }
+}
+@keyframes numberPulseDown {
+  0%   { opacity: 0.6; transform: scale(1.05); }
+  50%  { opacity: 1; transform: scale(0.98); }
+  100% { transform: scale(1); }
+}
+.animated-number-up {
+  animation: numberPulseUp 0.5s ease-out;
+}
+.animated-number-down {
+  animation: numberPulseDown 0.5s ease-out;
+}
+
+@keyframes glowFlash {
+  0%   { text-shadow: 0 0 0 transparent; opacity: 0.9; }
+  50%  { text-shadow: 0 0 6px rgba(255,255,255,0.6); opacity: 1; }
+  100% { text-shadow: 0 0 0 transparent; opacity: 0.95; }
+}
+.glow-flash {
+  animation: glowFlash 0.6s ease-in-out;
+}
+
+/* ===================================================
+🔁 SCROLL & TICKER ANIMAÇÕES
+=================================================== */
+@keyframes scrollTicker {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-100%); }
+}
+.animate-scrollTicker {
+  animation: scrollTicker 45s linear infinite;
+  will-change: transform;
+}
+@keyframes scrollReverse {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(100%); }
+}
+.animate-scrollReverse {
+  animation: scrollReverse 40s linear infinite;
+  will-change: transform;
+}
+.ticker-track {
+  display: flex;
+  min-width: 200%;
+  width: fit-content;
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* ===================================================
+💎 ORACLE PRICE LINE
+=================================================== */
+.oracle-price-line {
+  @apply bg-glass border border-white/10 rounded-xl px-4 py-3 flex justify-between items-center text-sm shadow-md;
+}
+.oracle-price-number {
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  transition: color 0.3s ease;
+}
+/* ===================================================
+💠 BADGES INSTITUCIONAIS ADAPTATIVAS — FIRECHAIN
 =================================================== */
 
-/* 🔗 Fundamentos, temas e resets */
-@import './base.css';
+/* 🧱 Camada visual base com efeito 3D premium */
+.badge-base {
+  @apply rounded-full px-3 py-[5px] text-[11px] font-medium shadow-sm transition-all duration-300 ease-in-out hover:ring-2 hover:ring-opacity-20;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.75), rgba(255,255,255,0.55));
+  box-shadow:
+    inset 0 1px 1px rgba(255,255,255,0.4),
+    0 2px 4px rgba(0,0,0,0.08),
+    0 0 0 1px rgba(0,0,0,0.04);
+  --tw-ring-color: var(--color-primary);
+}
+.dark .badge-base {
+  background: linear-gradient(to bottom, rgba(255,255,255,0.04), rgba(255,255,255,0.015));
+  box-shadow:
+    inset 0 0 0 rgba(255,255,255,0),
+    0 2px 6px rgba(0,0,0,0.3),
+    0 0 0 1px rgba(255,255,255,0.05);
+}
 
-/* 💠 Componentes visuais reutilizáveis */
-@import './components.css';
+/* 🔵 Azul — BRL */
+.badge-blue {
+  @apply badge-base bg-blue-100 text-blue-800 dark:bg-blue-500/10 dark:text-blue-300 border border-blue-300 dark:border-blue-400/20;
+}
 
-/* 🌀 Animações, feedbacks e microinterações */
-@import './animations.css';
+/* 🟢 Verde — USDT */
+.badge-green {
+  @apply badge-base bg-green-100 text-green-800 dark:bg-green-500/10 dark:text-green-300 border border-green-300 dark:border-green-400/20;
+}
+
+/* 🟠 Laranja — BTC */
+.badge-orange {
+  @apply badge-base bg-orange-100 text-orange-800 dark:bg-orange-500/10 dark:text-orange-300 border border-orange-300 dark:border-orange-400/20;
+}
+
+/* 🟣 Roxo — ETH */
+.badge-purple {
+  @apply badge-base bg-purple-100 text-purple-800 dark:bg-purple-500/10 dark:text-purple-300 border border-purple-300 dark:border-purple-400/20;
+}
+
+/* ⚪️ Neutro — Supply, valores genéricos */
+.badge-gray {
+  @apply badge-base bg-neutral-100 text-neutral-800 dark:bg-white/10 dark:text-white border border-neutral-300 dark:border-white/10;
+}
